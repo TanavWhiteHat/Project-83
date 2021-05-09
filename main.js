@@ -7,6 +7,8 @@ var last_position_of_x, last_position_of_y;
     color = "black";
     width_of_line = 2;
 
+    
+
     var width = screen.width;
 
     var new_width = screen.width - 70;
@@ -17,26 +19,18 @@ var last_position_of_x, last_position_of_y;
         document.getElementById("myCanvas").height = new_height;
         document.body.style.overflow = "hidden";
     }
-
+    canvas.addEventListener("touchstart", my_touchstart);
     function my_touchstart(e)
     {
         console.log("my_touchstart");
-
+        color = document.getElementById("color").value;
+        width_of_line = document.getElementById("width_of_line").value;
         last_position_of_x = e.touches[0].clientX - canvas.offsetLeft;
         last_position_of_y = e.touches[0].clientY - canvas.offsetTop;
     }
 
-    canvas.addEventListener("touchdown", my_touchdown);
-    
-    function my_touchdown(e)
-    {
-        //Addictonal Activity start
-        color = document.getElementById("color").value;
-        width_of_line = document.getElementById("width_of_line").value;
-        //Addictonal Activity ends
 
-        mouseEvent = "mouseDown";
-    }
+    
 
 
     canvas.addEventListener("touchmove", my_touchmove);
